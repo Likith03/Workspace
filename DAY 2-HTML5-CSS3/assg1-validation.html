@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation ASSG</title>
+    <style>
+        form{
+            width: 280px;
+        }
+        #formtitle{
+             margin-left: 105px;
+            margin-bottom: 10px;
+        }
+        label{
+            width: 100px;
+            display: inline-block;
+            text-align: right;
+            margin-bottom: 5px;
+        }
+        button{
+            margin-left: 105px;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="get">
+        <div id="formtitle">
+            New Registration Form
+        </div>
+    <div>
+        <label for="uname">User Name</label>
+        <input  required name="uname" id="uname" type="text">
+ </div>
+        <div>
+            <label for="uage">User Age</label>
+            <input required min="18" max="90" name="uage" step="0.5" id="uage" type="number">
+      </div>
+            <div>
+                <label for="uphone">User Phone</label>
+                <input required name="uphone" title="###-########" pattern="\d{3}-\d{8}" id="uphone" type="tel">
+             </div>
+                <div>
+                    <label for="uemail">User Email</label>
+                    <input required name="uemail" pattern="\S+@\S+\.\S+" id="uemail" type="email">
+                </div>
+                 <button type="submit" onclick="init()">Register</button>
+   </form>
+   <script>
+      document.getElementById("uname").setCustomValidity("You must fill your name");
+       function init(){
+       if(document.getElementById("uname").value == ""){
+        document.getElementById("uname").setCustomValidity("You must fill your name");
+       }else{
+        document.getElementById("uname").setCustomValidity("");
+       }
+    }
+       document.getElementById("uage").setCustomValidity("You must fill your age");
+       function init(){
+       if(document.getElementById("uage").value == ""){
+        document.getElementById("uage").setCustomValidity("You must fill your age");
+       }else{
+        document.getElementById("uage").setCustomValidity("");
+       }
+           
+       }
+       document.getElementById("uphone").setCustomValidity("You must fill your landline number");
+       function init(){
+       if(document.getElementById("uphone").value == ""){
+        document.getElementById("uphone").setCustomValidity("You must fill your landline number");
+       }else{
+        document.getElementById("uphone").setCustomValidity("");
+       }
+    }
+     document.getElementById("uemail").setCustomValidity("You must fill your personal mail id");
+       function init(){
+       if(document.getElementById("uemail").value == ""){
+        document.getElementById("uemail").setCustomValidity("You must fill your personal mail id");
+       }else{
+        document.getElementById("uemail").setCustomValidity("");
+       }
+    }
+   </script>
+</body>
+</html>

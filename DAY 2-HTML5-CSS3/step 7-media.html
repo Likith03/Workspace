@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media API</title>
+</head>
+<body>
+    <video width="550" height="400" poster="IMAGES/batman.jpg" controls autoplay>
+        <source src="media/html5.webm"/>
+        <source src="media/html5.mp4"/>
+    </video>
+    <p> Video Time:<span id="log"></span></p>
+    <button onclick="playvideo()">Play</button>
+    <button onclick="pausevideo()">Pause</button>
+    <button onclick="stopvideo()">Stop</button>
+    <script>
+        /*
+    console.log("video/mp4", document.getElementsByTagName("video")[0].canPlayType('video/mp4') );
+    console.log("video/ogg", document.getElementsByTagName("video")[0].canPlayType('video/ogg') );
+    console.log("video/webm", document.getElementsByTagName("video")[0].canPlayType('video/webm') ); */
+    var si = null;
+    function setLog(){
+        document.getElementsById("log").innerText=document.getElementsByTagName("video")[0].currentTime;
+    }
+    function playvideo(){
+        document.getElementsByTagName("video")[0].play();
+        setInterval(setLog,100);
+    }
+    function pausevideo(){
+        document.getElementsByTagName("video")[0].pause();
+    }
+    function stopvideo(){
+        document.getElementsByTagName("video")[0].currentTime=0;
+        document.getElementsByTagName("video")[0].pause();
+        clearInterval(si);
+        document.getElementById("log").innerText = 0;
+    }
+</script>
+</body>
+</html>
