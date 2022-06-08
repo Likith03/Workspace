@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 29</title>
+    <script>
+       /* The toLocaleString() method returns a string representing the elements of the array. 
+        The elements are converted to Strings using their toLocaleString methods 
+        and these Strings are separated by a locale-specific String (such as a comma ",")*/
+
+        const array1 = [1, 'a', new Date('08 jun 2022 18:22:00 UTC')];
+        const localeString = array1.toLocaleString('en', { timeZone: 'UTC' });
+        console.log(localeString);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
