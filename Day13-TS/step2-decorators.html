@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        var person ={
+            firstname : "Bruce",
+            lastname : "Wayne"
+        }
+        person.power = 7;
+        console.log( person );*/
+/*
+        var person ={
+            firstname : "Bruce",
+            lastname : "Wayne"
+        };
+        function addpower(pow){
+            return function(obj){
+                return {
+                    firstname : obj.firstname,
+                    lastname : obj.lastname,
+                    power : pow
+                }
+            }
+        };*/
+        /*
+        var heroInTheMaking = addpower(7);
+        console.log(heroInTheMaking(person));
+        person = heroInTheMaking(person); */
+
+        /*person = addpower(7)(person);
+        console.log(person);*/
+
+        class Person{
+            firstname = "Bruce";
+            lastname = "Wayne"
+        };
+        function AddPower(pow){
+            return function(targetClass){
+                let tc = new targetClass();
+                return class {
+                    firstname = tc.firstname;
+                    lastname = tc.lastname;
+                    power = pow;
+                }
+            }
+        };
+        Person = AddPower(7)(Person);
+        console.log( new Person() );
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
