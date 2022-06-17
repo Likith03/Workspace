@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX JSON</title>
+    <style>
+        .container{
+            width: 600px;
+            height: 300px;
+            background-color: darkslategray;
+            color: azure;
+            font-family: 'arial';
+            font-size: 18px;
+            text-align: justify;
+            padding: 10px;
+            margin: 10px auto;
+            overflow: auto;
+        }
+        button{
+            display: block;
+            margin: auto;
+            width: 150px;
+            padding: 10px;
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.addEventListener("readystatechange",statechangehandler);
+
+        function statechangehandler(evt){
+            console.log(evt.target);
+            if(evt.target.status === 200 && evt.target.readyState === 4){
+                var heroes = JSON.parse(evt.target.responseText).hl;
+                for(var i = 0; i < heroes.length; i++){
+                    document.getElementById("hero").innerHTML += "<option value ='"+heroes[i].title+"'>"+heroes[i].title+"</option>"
+                }
+            }
+        };
+    
+        function loadHandler(){
+            xhr.open("get","data/data.json");
+            xhr.send();
+        }
+        document.addEventListener("DOMContentLoaded", loadHandler);
+    </script>
+</head>
+<body>
+    <select id="hero">
+        <option value="#">Select your fav hero here</option>
+        
+</select>
+</body>
+</html>

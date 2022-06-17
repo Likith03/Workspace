@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES DOM</title>
+    <script>
+        window.onload = function(){
+       // console.log(document.getElementsByTagName("body")[0].childNodes.length);
+       //console.log(document.getElementsByTagName("body")[0].childNodes[0].nodeName);
+     //  console.log(document.getElementsByTagName("body")[0].childNodes[1].nodeName);
+     // console.log(document.getElementsByTagName("body")[0].children[0].tagname);
+      // console.log(document.body.children[0]);
+     //  document.body.children[0].innerHTML = "Selected";
+       document.body.children[0].children[1].innerHTML = "Selected";
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+        <li>List item 4</li>
+        <li>List item 5</li>
+    </ul>
+</body>
+</html>

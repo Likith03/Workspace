@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 740px;
+            height: 400px;
+            background-color: rgb(255, 124, 124);
+            margin: 10px auto;
+            overflow: auto;
+        }
+        .container div{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            margin: 10px;
+            float: left;
+            font-size: 60px;
+            text-align: center;
+            line-height: 100px;
+        }
+        .container div:hover{
+           cursor: pointer;
+           background-color: orangered;
+           box-shadow: 0px 0px 10px;
+        }
+        .btnbox{
+            width: 700px;
+            margin: auto;
+            text-align: center;
+        }
+        button{
+          margin: 10px auto;
+          display: inline-block;
+          padding: 10px;
+          font-size: 20px;
+          width: 200px;
+        }
+    </style>
+    <script>
+           var eventcount = 0;
+        var count = 1;
+           window.onload = function(){
+                document.getElementsByTagName("button")[0].onclick = function(){
+                    for(var i = 0; i < 100; i++){
+                        createBox();
+                    }
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <body>
+    <div class="btnbox">
+        <button>Add 100 Black Boxes</button>
+    </div>
+    <div class="container"></div>
+</body>
+</html>

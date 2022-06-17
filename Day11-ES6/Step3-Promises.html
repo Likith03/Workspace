@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // higher order function or composition
+        let promise = new Promise(function(resolve, reject){
+            setTimeout(function(){
+                if(false){
+                    resolve("Success : Promise was Resolved")
+                }else{
+                    reject("Error : Promise was Rejected")
+                }
+            },4000)
+        });
+ 
+        promise.then(function(res){
+            console.log("Resolved ", res)
+        }); // can handle both success and error
+        promise.catch(function(err){
+            console.log("Rejected ", err)
+        }); // can only handle error
+        promise.finally(function(){
+            console.log("Promise Completed its cycle ")
+        }); // do not handle both success and error
+ 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

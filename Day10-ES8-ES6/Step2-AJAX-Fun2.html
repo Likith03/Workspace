@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX foundation</title>
+    <style>
+        .container{
+            width: 600px;
+            height: 300px;
+            background-color: darkslategray;
+            color: azure;
+            font-family: 'arial';
+            font-size: 18px;
+            text-align: justify;
+            padding: 10px;
+            margin: 10px auto;
+            overflow: auto;
+        }
+        button{
+            display: block;
+            margin: auto;
+            width: 150px;
+            padding: 10px;
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.addEventListener("readystatechange",statechangehandler);
+        function statechangehandler(evt){
+            console.log(evt.target);
+            if(evt.target.status === 200 && evt.target.readyState === 4){
+                // document.getElementsByClassName("container")[0].textContent += "<div>"+evt.target.responseXML.getElementsByTagName('title')[0].innerText+"</div>";
+                // console.log(evt.target.responseXML.getElementsByTagName('root')[0].getElementsByTagName("hl")[0].getElementsByTagName("title")[0].firstChild.nodeValue);
+                var heroes = evt.target.responseXML.getElementsByTagName("root")[0].getElementsByTagName("hl");
+                for(var i = 0; i < heroes.length; i++){
+                    document.getElementsByClassName("container")[0].innerHTML += "<div>"+heroes[i].getElementsByTagName('title')[0].firstChild.nodeValue+"</div>"
+                }
+            }
+        };
+        function init(){
+            xhr.open("get","data/data.xml");
+            document.getElementsByTagName("button")[0].addEventListener("click",clickHandler);
+ 
+        };
+        function clickHandler(){
+            xhr.send();
+        }
+        document.addEventListener("DOMContentLoaded", init);
+    </script>
+</head>
+<body>
+    <button>Load Data</button>
+    <div class="container"></div>
+</body>
+</html>
